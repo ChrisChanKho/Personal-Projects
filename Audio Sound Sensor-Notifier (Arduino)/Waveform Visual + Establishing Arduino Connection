@@ -100,6 +100,3 @@ while True:
 
         print("Connection Lost ... Program has ended")
         break
-
-
-
