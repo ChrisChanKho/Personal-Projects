@@ -3,9 +3,7 @@ import pyaudio
 import os
 import struct
 import numpy as np
-import matplotlib.pyplot as plt
 import time
-from tkinter import TclError
 
 # constants
 CHUNK = 1024 * 2             # samples per frame
@@ -69,6 +67,3 @@ while True:
 
         print("Connection Lost ... Program has ended")
         break
-
-
-
