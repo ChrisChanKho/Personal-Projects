@@ -18,7 +18,7 @@ while True:
     try:
         print("Searching For Arduino board ... ")
         time.sleep(2)
-        arduinoData = serial.Serial('com3', 9600) # Arduino Connection - "Change com3 to your arduino port connection"
+        arduinoData = serial.Serial('com3', 9600) # arduino Connection - "Change com3 to your arduino port connection"
         break
     except (serial.serialutil.SerialException, FileNotFoundError):
         print("Arduino Not Found ..." + "\n")
@@ -53,18 +53,18 @@ while True:
     # create np array
     data_np = np.array(data_int, dtype='b')[::2]
 
-    # Updating variable trackers per sample
+    # updating variable trackers per sample
     try:
         sampleCount += 1
         volCum += data_np[1]
 
-    # Sending data to Arduino
+    # sending data to Arduino
         if sampleCount % 2 == 0:
             arduinoData.write(volCum / sampleCount)
             volCum = 0
             sampleCount = 0
 
-    # Error handling for lost Arduino connection
+    # error handling for lost Arduino connection
     except (serial.serialutil.SerialException, FileNotFoundError):
 
         print("Connection Lost ... Program has ended")
